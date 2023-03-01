@@ -1,0 +1,2 @@
+# set json value to the dropdown
+$('#updatepatient_name').val(patient_name);
