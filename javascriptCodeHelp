@@ -1,2 +1,5 @@
 # set json value to the dropdown
 $('#updatepatient_name').val(patient_name);
+
+#redirect to new jsp page on ajax success
+document.location.href='/home';
