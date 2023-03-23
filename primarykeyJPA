@@ -1,4 +1,17 @@
-# Primary Key with Characters and Numbers
+# Primary key with custom sequence only numbers
+-------------------------------------------------
+Bean class
+==========
+	@Id
+	@GeneratedValue(generator = "regidseq")
+	@SequenceGenerator(name = "regidseq", sequenceName = "regidsequence", initialValue = 2300001, allocationSize = 1)
+	private Long regid;
+
+
+
+
+
+# Primary Key with with sequence Characters and Numbers
 ---------------------------------------------
 
 StringPrefixedSequenceIdGenerator.class
