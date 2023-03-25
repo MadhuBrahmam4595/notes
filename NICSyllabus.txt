@@ -1,0 +1,313 @@
+Section A (Post A & B)
+#########
+Logical Reasoning, Analytical Reasoning Capabilities, Quantitative and Qualitative Abilities, General Aptitude 
+
+Section B
+##########
+	B. 							A.				
+	Probability, Statistics and Combinatorics		Probability and Statistics  
+	Digital Logic						Digital Computer Principles
+	Computer Organization and Architecture			Computer Organization and Architecture  
+	Electrical Engineering					Object Oriented Programming
+	Analog and Digital Communication
+	Programming and Data Structures				Programming and Data Structures
+	Algorithms						Algorithms
+	Compiler Design
+	Operating System					System Software
+	Databases						Databases
+	Information Systems and Software Engineering		Information Systems and Software Engineering
+	Computer Networks					Computer Networks
+	Web Technologies					Web Technologies
+	Cyber Security and Emerging Technologies		
+	Cloud Technology
+
+B&A => 	1. Probability, Statistics and Combinatorics
+	2. Computer Organization and Architecture
+	3. Programming and Data Structures	
+	4. Algorithms
+	5. Databases
+	6. Information Systems and Software Engineering
+	7. Computer Networks
+	8. Web Technologies 
+	
+
+B => 	1. Digital Logic
+	2. Electrical Engineering
+	3. Analog and Digital Communication
+	4. Compiler Design
+	5. Operating System
+	6. Cyber Security and Emerging Technologies
+	7. Cloud Technology 
+
+A => 	1. Digital Computer Principles
+	2. Object Oriented Programming
+	3. System Software
+	
+1. A&B. Probability, Statistics and Combinatorics:  
+		A&B. Conditional Probability; 
+		A&B. Mean, Median, Mode and Standard Deviation;  
+		A&B. Random Variables;  
+		A&B. Distributions;  
+		A&B. uniforms, normal , exponential, Poisson  , Binomial , Permutations, Combinations, Counting, Summation, generating functions, recurrence relations, asymptotic;
+	
+		A. Sampling theorems;  
+		A. Random Variables discrete and continuous distributions;  
+		A. correlation and regression analysis  
+
+2. A&B. Computer Organization and Architecture: ( B & A )
+		A&B. Machine instructions and addressing modes, 
+		A&B. ALU and data-path,  
+		A&B. CPU control design,  
+		A&B. Memory interface,  
+		A&B. I/O interface (Interrupt and DMA mode),   
+		A&B. Instruction pipelining.  
+		A&B. Cache and main memory,  
+		A&B. Secondary storage.  
+ 	
+		A. Multiprocessors and microcomputers,  
+		A. Semiconductor memory – Internal organization  
+		A. SRAM.  
+		A. DRAM,  
+		A. SDRAM,  
+		A. Rambus Memory,  
+		A. ROM Technology,  
+		A. virtual memory, 
+		A. Instruction sequencing ,  
+		A. Instruction execution,  
+		A. Hardwired control and microprogrammed control,  
+		A. micro instructions,  
+		A. Instruction pipelining  
+
+3. A&B. Programming and Data Structures: 
+		A&B. Functions,  
+		A&B. Recursion,  
+		A&B. Parameter passing,   
+		A&B. Scope, 
+		A&B. Binding,  
+		A&B. Abstract data types Arrays,  
+		A&B. Stacks,  
+		A&B. Queues, 
+		A&B. Linked Lists,  
+		A&B. Trees,  
+		A&B. Binary search trees,  
+		A&B. Binary heaps,  
+		A&B. Object Oriented Programming Concepts- Object, Class, Inheritance, Polymorphism, Abstraction and Encapsulation. 
+		
+		B. Programming in modern languages viz. Java, .Net, Open Source (PHP), Python, GoLang, NodeJS, etc. 
+		A. Programming and Data Structures :  Programming in C,  
+
+4. A&B. Algorithms: 
+		A&B. Analysis, 
+		A&B. Asymptotic notation, 
+		A&B. Notions of space and time complexity,  
+		A&B. Worst and average case analysis, 
+		A&B. Design; 
+			Greedy approach, 
+			Dynamic programming, 
+			Divide-andconquer, 
+			Tree and graph traversals, 
+			Connected competent, 
+			Spanning trees, 
+			Shortest paths; 
+			Hashing, 
+			Sorting, 
+			Searching, 
+			Asymptotic analysis (best, worst, average cases) of time and space, 
+			upper and lower bounds, 
+		A&B. Basic concept of complexity classes –P,  NP, NP-hard,  NPcomplete.
+
+5. A&B. Databases:  
+		A&B. ER-model,  
+		A&B. Relational Model (relational algebra, tuple calculus), 
+		A&B. Database design (integrity constraints, normal forms),  
+		A&B. Query languages (SQL),  
+		A&B. File structures (sequential files, indexing, B and B+ trees),   
+		A&B. Transactions and concurrency control,  
+
+		B. NoSQL Databases,  
+		B. question on internals of Postgres SQL  
+
+
+6.  A&B. Information Systems and Software Engineering:
+	 	 A&B. Information gathering requirement  and feasibility analysis,  
+		 A&B. data flow diagrams,  
+		 A&B. process specifications,  
+		 A&B. input/output design,  
+		 A&B. process life cycle,  
+		 A&B. planning and managing the project,  
+		 A&B. design, coding and testing, 
+		 A&B. implementation, 
+		 A&B. maintenance.
+
+7. A&B. Computer Networks: ( B & A )
+		A&B. ISO/OSI stack, 
+		A&B. LAN technologies(Ethernet, Token Ring)
+		A&B. Flow and error control techniques, 
+		A&B. Routing algorithms, 
+		A&B. Congestion control, 
+		A&B. TCP/UDP and sockets, 
+		A&B. IP(v4), 
+		A&B. IP(v6),   
+		A&B. Application layer protocols, (ICMP, DNS, SMTP, POP, FTP, HTTP), 
+		A&B. Basic concepts of hubs, switches,  gateways, and routers. 
+		A&B. Wireless technologies,  Network security – basic concepts of public key and private key cryptography,  digital signature, firewalls. 
+		A&B. User authentication-  Token based,  Biometric, Remote user  authentication, Intrusion detection systems, honey pots,  Denial of Service. 
+		A&B. Wireless network, 2G and 3G Networks, Bluetooth.
+
+8. A&B. Web Technologies: ( B & A )
+		A&B. HTML5, 
+		A&B. CSS3, 
+		A&B. XML basic concept of client-server computing, 
+		A&B. web server, 
+		A&B. proxy server, 
+		A&B. web application development, 
+		A&B. MVC architecture, 
+		A&B. web services, 
+		A&B. frontend technologies. 
+
+B. 1. Digital Logic:  
+	Logic functions, 
+	Minimization, 
+	Design and synthesis of combinational and sequential circuits, 
+	Number representation and computer arithmetic (fixed and floating point). 
+
+B. 2. Electrical Engineering:
+	Power Electronics, 
+	Signals and Systems, 
+	Electromagnetic Fields, 
+	Network graph, 
+	KCL, 
+	KVL, 
+	Node and Mesh Analysis, 
+	Transient response of DC and AC networks, 
+	Sinusoidal steady-state analysis, 
+	Resonance, 
+	Super position theorem, 
+	Maximum  power transfer theorem, 
+	Three phase circuits, 
+	Power and power factor in AC circuits. 
+
+B. 3. Analog and Digital Communication: (B)
+	Autocorrelation and power spectral density, 
+	properties of white noise, 
+	filtering of random signals through LTI systems, 
+	amplitude modulation and demodulation, 
+	angle modulation and demodulation, 
+	spectra of AM and FM, 
+	Super heterodyne receivers, 
+	circuits for analog communications, 
+	Information theory, 
+	entropy, 
+	mutual information and channel capacity theorem, 
+	Digital communications, 
+	PCM, 
+	DPCM, 
+	digital modulation schemes, 
+	amplitude, 
+	phase and frequency shift keying (ASK, PSK, FSK), 
+	QAM, 
+	MAP and ML decoding, 
+	matched filter receiver, 
+	calculation of bandwidth, 
+	SNR and BER for digital modulation; 
+	Fundamentals of error correction, 
+	Hamming codes; 
+	Timing and frequency synchronization, 
+	inter- symbol interference and its mitigation; 
+	Basics of TDMA, FDMA and CDMA 
+
+B. 4. Compiler Design: 
+	Lexical analysis, 
+	Parsing, 
+	Syntax directed translation, 
+	Runtime environments, 
+	Intermediate and target code generation, 
+	Basics of code optimization.
+
+B. 5. Operating System:  
+	Processes, 
+	Threads, 
+	Inter-Process communication, 
+	Concurrency, 
+	Synchronization, 
+	Deadlock, 
+	CPU scheduling, 
+	Memory management and virtual memory, 
+	File systems, 
+	I/O systems, 
+	Protection and security
+
+B. 6. Cyber Security and Emerging Technologies: (B)
+	Secure programming techniques, 
+	OWASP top 10 vulnerabilities, 
+	Concepts on IOT, 
+	Block Chain, 
+	AI, 
+	etc.
+
+B. 7. Cloud Technology:  
+	Compute, 
+	Network, 
+	Storage Management Technologies, 
+	Edge Computing, 
+	etc.
+
+A. 1. Digital Computer Principles:  
+	Number systems- 
+		Binary, 
+		Decimal. 
+		Octal and Hexadecimal Conversion, 
+	Arithmetic operations, 
+	Boolean expression , 
+	simplification, Postulates and theorems, 
+	Simplifications, 
+	K-map, 
+	Combinational Logic circuits – 
+		Adder, 
+		Subtractor, 
+		Multiplexer, 
+		Demultiplexer, 
+		Encode, 
+		Decoder, 
+	Sequential circuits – 
+		SR, 
+		JK, 
+		T, 
+		D, 
+		flip flops, 
+		shift registers, 
+		Asynchronous, synchronous and Module and counters.  
+
+A. 2. Object Oriented Programming:  
+	Object Oriented design concept, 
+	programming in C++ and on programming languages viz. Java, .Net, Open Source (PHP), Python, GoLang, NodeJS, etc.
+
+A. 3. System Software:  
+	Lexical analysis, 
+	parsing, 
+	syntax directed translation, 
+	code generation and optimization, 
+	Assemblers, 
+	linkers and loaders microprocessors operating systems- processes, 
+	threads, 
+	inter-process communication, 
+	synchronization deadlocks, 
+	CPU scheduling, 
+	memory management and virtual memory , 
+	file system , 
+	I/O systems , 
+	protection and security module.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
