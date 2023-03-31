@@ -1,3 +1,7 @@
 1. java.util.NoSuchElementException: No value present
       Ans => Given Primary key is not found in the database.
       
+      
+2. org.springframework.expression.spel.SpelEvaluationException:
+      => code wrong in jpa repository native query 
+      
