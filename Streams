@@ -1,32 +1,74 @@
-// Java Program to count the occurrences of each character in String
+String input = "thanksyousomuch";
 		
-		String input = "thanksyousomuch";
+		String stringArray = Arrays.toString(input.split(""));
+		//output: [t, h, a, n, k, s, y, o, u, s, o, m, u, c, h]
 		
-		Arrays.toString(input.split("")); //return type= string array
-    //output: [t, h, a, n, k, s, y, o, u, s, o, m, u, c, h]
-    
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(s->s)); //return type= Map<String, List<String>>
-    //output: {a=[a], c=[c], s=[s, s], t=[t], u=[u, u], h=[h, h], y=[y], k=[k], m=[m], n=[n], o=[o, o]}
-    
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));// return type= Map<String, Long>
+		Map<Object, List<String>> mapobject = Arrays.stream(input.split("")).collect(Collectors.groupingBy(s->s));  
+		//output: {a=[a], c=[c], s=[s, s], t=[t], u=[u, u], h=[h, h], y=[y], k=[k], m=[m], n=[n], o=[o, o]}
+		
+		Map<String, Long> mapObject = Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		//output: {a=1, c=1, s=2, t=1, u=2, h=2, y=1, k=1, m=1, n=1, o=2}
-    
+		
 		//Java Program to find all duplicate elements
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-			.entrySet().stream().filter(x-> x.getValue()>1).map(Map.Entry::getKey).collect(Collectors.toList());//return type= List<String>
+		List<String> listStr = Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		.entrySet().stream().filter(x-> x.getValue()>1).map(Map.Entry::getKey).collect(Collectors.toList());
 		//output: [s, u, h, o]
-    
+		
 		// Java Program to find all unique values
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-		.entrySet().stream().filter(x-> x.getValue() == 1).map(Map.Entry::getKey).collect(Collectors.toList());//return type: List<String>
-    //output: [a, c, t, y, k, m, n]
+		List<String> listStr2= Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		.entrySet().stream().filter(x-> x.getValue() == 1).map(Map.Entry::getKey).collect(Collectors.toList());  
+		//output: [a, c, t, y, k, m, n]
+		
 		
 		//Java Program to find first non-repeat element
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-		.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();//return type: String
-    //output: t
+		String firstEle = Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+		.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey(); 
+		//output: t
+		
 		
 		//Java Program to find first repeat element
-		Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-		.entrySet().stream().filter(x -> x.getValue() > 1).findFirst().get().getKey();//return type: String
-    //output: h
+		String firstElem = Arrays.stream(input.split("")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+		.entrySet().stream().filter(x -> x.getValue() > 1).findFirst().get().getKey(); 
+		//output: h
+		
+		
+		//Java Program to find second highest number from given array
+		int[] numbers = {5,9,11,2,8,21,1};
+		
+		//help: sorting in ascending order
+		List<Integer> integerList = Arrays.stream(numbers).boxed().sorted().collect(Collectors.toList());
+		//output: [1, 2, 5, 8, 9, 11, 21]
+		
+		//help: sorting in descending order
+		List<Integer> integerList2 = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		//output: [21, 11, 9, 8, 5, 2, 1]
+		
+		//skipping first element after removing first element
+		List<Integer> integerList3 = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).skip(1).collect(Collectors.toList());
+		//output: [11, 9, 8, 5, 2, 1]
+		
+		Integer firstElement = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+		//output: 11
+		
+		//For find Second Least Number
+		Integer leastSecond = Arrays.stream(numbers).boxed().sorted().skip(1).findFirst().get();
+		//output: 2
+		
+		//Longest String from given array
+		String[] langs = {"java", "css", "html", "springboot", "microservice"};
+		String longestStr = Arrays.stream(langs).reduce((word1,word2)-> word1.length()>word2.length()?word1:word2).get();
+		//output: microservice
+		
+		//Find All Elements from array who starts with 1
+		int[] numbers2 = {5,9,11,2,8,21,1,29};
+		
+		//help: converting into string array
+		List<String> stringarray = Arrays.stream(numbers2).boxed().map(s -> s +"").collect(Collectors.toList());
+		//output: [5, 9, 11, 2, 8, 21, 1, 29]
+		
+		List<String> stringarray2 = Arrays.stream(numbers2).boxed().map(s -> s +"").filter(s -> s.startsWith("1")).collect(Collectors.toList());
+		//output: [11, 1]
+		
+		//Skip & limit method use case based example
+		IntStream.range(1, 10).skip(1).limit(8).forEach(System.out::print);
+		//output: 23456789
