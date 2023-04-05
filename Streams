@@ -1,3 +1,5 @@
+
+
 String input = "thanksyousomuch";
 		
 		String stringArray = Arrays.toString(input.split(""));
