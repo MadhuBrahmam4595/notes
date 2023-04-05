@@ -1,3 +1,52 @@
+=> Streams are using for process objects of the collection.
+
+=> What is the Differences between java.util.streams and java.io.streams?
+	=> java.util.streams meant for processing objects from the collection, it represents a stream of objects from the collection.
+	=> java.io.streams are meant for processing binary and character data with respect to file.
+	
+=> What is the different between collection and stream?
+	=> if we want to represent a group of individual objects as a single entity then We should go for collection.
+	=> if we want to process a group of objects from the collection then we should go for streams.
+	=> We can create a stream object to the collection by using stream() method of collection interface.
+	=> stream() method is a default method added to the Collection in 1.8 version. default Stream stream()
+	=> Ex. Stream s = c.stream();
+	
+=> Stream is an interface present in java.util.stream.
+=> Once we got the stream, by using that we can process objects of that collection.
+=> We can process the objects in the following 2 phases
+
+1. Configuration: 
+	=> We can configure either by using filter mechanism or by using map machanism.
+	a. Filtering
+		=> We can configure a filter to filter elements from the collection based on some boolean condition by using filter() method of stream interface.
+			=> public Stream  filter(Predicate<T> t)
+		=> here (Predicate<T> t) can be a boolean valued function/lambda expression.
+		=> Ex: 	Stream s = c.stream()
+			Stream s1 = s.filter(i -> i%2==0);
+		=> Hence to filter elements of collection based on some Boolean condition we should go for filter() method.
+		a.1 Mapping
+		=> If we want to create a separate new object, for every object present in the collection based on our requirement then we should go for map() method
+		   of stream interface.
+		=> public Stream map(Function f); -> (Function f) it can be lambda expression also
+		=> Ex:
+			Stream s = c.stream(); 
+			Stream s1 = s.map(i -> i+10);
+		=> Once we performed configuration we can process bojects by using several methods.
+	b. Processing
+		=> b.1 processing by collect() method
+			=> This method collects the elements from the stream and adding to the specified to the collection indicated (specified ) by argument.
+			=> Example: To collect only even numbers from the arraylist.
+				ArrayList<Integer> list = new ArrayList<String>();
+				for(int i=0; i<10;i++){
+					list.add(i);
+				}
+				List<Integer> intList = list.stream().filter(i -> i%2 == 0).collect(Collectors.toList());
+		=> b.2 processing by count() method 
+		=> b.3 processing by sort() method
+		=> b.4 processing by min() and max() method
+		=> b.5 forEach() method
+		=> b.6 toArray() method
+		=> b.7 Stream.of() method
 
 
 String input = "thanksyousomuch";
