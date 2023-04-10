@@ -1,3 +1,13 @@
+#scroll bar for table
+<div id="scrollbar"> <div id="content"></div> </div>
+#scrollbar {
+	width: 800px;
+	height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	text-align: justify;
+}
+
 # set json value to the dropdown
 $('#updatepatient_name').val(patient_name);
 
