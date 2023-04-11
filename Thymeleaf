@@ -1,0 +1,5 @@
+if else condition
+===================
+ <a class="btn btn-primary" th:if="${user.role} == 'ADMIN'">Update</a>
+            <a class="btn btn-danger" th:if="${user.role} == 'ADMIN'">Delete</a>
+            <a class="btn btn-primary" th:unless="${user.role} == 'ADMIN'">View</a>
