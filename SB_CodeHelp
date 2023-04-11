@@ -1,0 +1,13 @@
+SENDING USERNAME ALOGN WITH SESSION IN SB SECURITY 2
+=======================================================
+@GetMapping({"/login"})
+    public String menu3(Model model,HttpSession session){
+		model.addAttribute("validUser", "validUser");
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		String username=authentication.getName();
+		model.addAttribute("userName", username);
+		session.setAttribute("username",username);
+		System.out.println("session values is"+session.getAttribute("username"));
+        return "dashboard";
+    }
+    
