@@ -3,6 +3,5 @@
        => Your requesting data is not available
       
       
-2. org.springframework.expression.spel.SpelEvaluationException:
-      => code wrong in jpa repository native query  
-     
+2. org.springframework.expression.spel.SpelEvaluationException:=> code wrong in jpa repository native query  
+3. Circular References Exception: => spring.main.allow-circular-references=true
