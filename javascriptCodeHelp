@@ -42,3 +42,27 @@ function myFunction() {
  		document.getElementById('words').innerHTML = inWords(document.getElementById('number').value);
  		};
 	}
+	
+# validate loop input values 
+<input type="hidden" name="noofbills" id="noofbills" value="${noofbills }"/>
+<c:set var = "count" value="0" scope="page"/>
+<c:forEach var="list1" items="${list1}">
+		<c:set var = "count" value="${count +1 }" scope="page"/>
+		<input type="text"  name="amount_approved" id="amount_approve${count}" />
+</c:forEach>
+js= > 
+var noofbills = $("#noofbills").val();
+ 		alert("noofbills==> "+noofbills);
+		
+		for(var i = 1; i <= noofbills; i++){
+			var a = $("#amount_approve"+i).val();
+			var b = $("#remarks"+i).val();
+			
+			if(a === null || a === ""){
+				alert("Amount Approved is Required, Fill that"); return false;
+			}
+			if(b === null || b === ""){
+				alert("Remarks is Required, Fill that"); return false;
+			}
+		}
+
