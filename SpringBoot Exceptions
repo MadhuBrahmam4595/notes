@@ -1,7 +1,13 @@
 1. java.util.NoSuchElementException: No value present
        => Given Primary key is not found in the database.
        => Your requesting data is not available
-      
-      
+       
 2. org.springframework.expression.spel.SpelEvaluationException:=> code wrong in jpa repository native query  
+
 3. Circular References Exception: => spring.main.allow-circular-references=true
+
+4. org.springframework.dao.IncorrectResultSizeDataAccessException: 
+       query did not return a unique result: 2; 
+       nested exception is javax.persistence.NonUniqueResultException: query did not return a unique result: 2
+       => your finding one row in database and return type is bean entity, but query returns more than one row then it's not able to assign result to the entity
+              there is the problem.
