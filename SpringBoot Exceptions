@@ -11,3 +11,11 @@
        nested exception is javax.persistence.NonUniqueResultException: query did not return a unique result: 2
        => your finding one row in database and return type is bean entity, but query returns more than one row then it's not able to assign result to the entity
               there is the problem.
+5. java.lang.IllegalArgumentException: Can not set boolean field com.iti.entity.Iti.vtp to null value
+       => your created a variable with data type boolean (Ex: private boolean pass;) but in the database null values are available for that column, 
+       you need to change return type of the variable to Boolean (Ex: private Boolean pass;) then it's works fine
+       => Reason: 
+                => boolean is a primitive type, and can have a value of only true or false.
+                => Whereas Boolean is a Wrapper Object and can be given a null value.
+                => From Java 1.5 AutoBoxing is provided, so you can convert boolean to Boolean and back to boolean with Simple assignment operator (=), 
+                        So you can do this in places where you want Boolean instead of boolean.
