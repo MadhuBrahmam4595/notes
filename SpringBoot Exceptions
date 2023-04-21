@@ -19,3 +19,8 @@
                 => Whereas Boolean is a Wrapper Object and can be given a null value.
                 => From Java 1.5 AutoBoxing is provided, so you can convert boolean to Boolean and back to boolean with Simple assignment operator (=), 
                         So you can do this in places where you want Boolean instead of boolean.
+
+6. org.springframework.web.bind.MissingServletRequestParameterException: 
+       Required request parameter 'requestno' for method parameter type String is not present
+       => variable name in bean class and @RequestParam variable name should same (syntax also) while using repository findById method.
+       
