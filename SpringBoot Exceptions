@@ -23,4 +23,11 @@
 6. org.springframework.web.bind.MissingServletRequestParameterException: 
        Required request parameter 'requestno' for method parameter type String is not present
        => variable name in bean class and @RequestParam variable name should same (syntax also) while using repository findById method.
+     
+7. org.springframework.core.convert.ConverterNotFoundException: 
+       No converter found capable of converting from type [org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap] 
+       to type [com.thorben.janssen.spring.data.model.PlayerNameDto]
+       => Ur return type of the repository method is writtern a class instead of entity class of the repository.
+       => Solution is you need to create getter method for every parameter of the custom class variable which is your repository method returning class.
+       => Ex: public interface Demo{ String getFirstName(); String getLastName();}
        
