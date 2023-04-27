@@ -1,0 +1,239 @@
+@Component :
+              => Indicates that an annotated class is a "Spring Bean / Component"
+              => It tells Spring Container to automatically create Spring bean.
+              => Spring supports three types of configurations.
+                  1. XML based configuration    2. Annotation based configuration   3. Java based configuration
+              => Example:
+              Hello.java
+              ==========
+              @Component
+              public class Hello{
+                public String hello(){
+                  return "Hello";
+                }
+              }
+              Demo.java
+              =========
+              public class Demo{
+                public static void main(String[] args){
+                  var context = SpringApplication.run(Demo.class, args);
+                  Hello helloClass = context.getBean(Hello.class);
+                  System.out.println(helloClass.hello());
+                }
+              }
+              Output: Hello
+              => Generally spring container class name take as bean name with first letter small, instead of that we modify bean with attribute name.
+              Example: 
+              @Component("hellobean")
+              public class Hello{
+                public String hello(){
+                  return "Hello";
+                }
+              }
+              Demo.java
+              =========
+              public class Demo{
+                public static void main(String[] args){
+                  var context = SpringApplication.run(Demo.class, args);
+                  Hello helloClass = (Hello) context.getBean("hellobean");
+                  System.out.println(helloClass.hello());
+                }
+              }
+              => without custom component name we can get object as like below
+              @Component
+              public class Hello{
+                public String hello(){
+                  return "Hello";
+                }
+              }
+              Demo.java
+              =========
+              public class Demo{
+                public static void main(String[] args){
+                  var context = SpringApplication.run(Demo.class, args);
+                  Hello helloClass = (Hello) context.getBean("hello");
+                  System.out.println(helloClass.hello());
+                }
+              }
+@Autowired
+    => It is used to inject the bean automatically.
+    => It is used in constructor injection, setter injection and field injection.
+    Exmaple:
+    VegPizza.java
+    =============
+    @Component
+    public class VegPizza{
+      public String vegPizza(){
+        return "vegPizza";
+      }
+    }
+    PizzaController.java
+    ====================
+    @Component
+    public class PizzaController{
+    
+    //Field Injection
+    @Autowired
+    private VegPizza vegPizza;
+    
+    //Constructor Injection
+    @Autowired
+    public PizzaContoller(VegPizza vegPizza){
+      this.vegPizza = vegPizza;
+    }
+    
+    //Setter Injection
+    public void setVegPizza(VegPizza vegPizza){
+      this.vegPizza = vegPizza;
+    }
+    
+@Qualifier:
+    => It is used in conjuction with Autowired to avoid confusion when we have two or more beans configured for same type.
+    Example:
+    A.java
+    ======
+    public interface A{
+      public String hello();
+    }
+    B.java
+    ======
+    @Component
+    public class B implements A{
+      public String hello(){
+        return "Hello from B Class";
+      }
+    }
+    C.java
+    ======
+    @Component
+    public class C implements A{
+      public String hello(){
+        return "Hello from C class";
+      }
+    }
+    Main.java
+    =========
+    public class Main{
+      private A a;
+      
+      public Main(@Qualifier(c) C c){
+        this.c = c;
+      }
+      public String hello(){
+        return a.hello();
+      }
+      Output: Hello from C class
+      
+@Primary:
+  => This annotation is using for to give higher preference to a bean when there are multiple beans of the same type.
+  Example:
+    A.java
+    ======
+    public interface A{
+      public String hello();
+    }
+    B.java
+    ======
+    @Component
+    public class B implements A{
+      public String hello(){
+        return "Hello from B Class";
+      }
+    }
+    C.java
+    ======
+    @Component
+    @Primary
+    public class C implements A{
+      public String hello(){
+        return "Hello from C class";
+      }
+    }
+    Main.java
+    =========
+    public class Main{
+      private A a;
+      
+      public Main(C c){
+        this.c = c;
+      }
+      public String hello(){
+        return a.hello();
+      }
+      Output: Hello from C class
+      
+@Bean:
+  => It's indicate that a method produce a bean to be managed by the container.
+  => It's usually declared in configuration class to create spring bean definitions.
+  Example:
+  A.java
+  ======
+  public interface A{
+    public String hello();
+  }
+  AppConfig.java
+  ======
+  @Configuration
+  public class AppConfig{
+    @Bean
+    public A a(){
+      return new A();
+    }
+    => By default, the bean name is same as method name. we can specify bean name using @Bean(name="beanName").
+    Example: 
+    @Configuration
+    public class AppConfig{
+      @Bean(name = "a_bean")
+      public A a(){
+      return new A();
+      }
+    }
+    
+    => Java based configuration
+    A.java
+    ======
+    public class A{
+    }
+    B.java
+    ======
+    public class B{
+    }
+    @Configuration
+    public class AppConfig{
+      @Bean public A getA() { return new A(); } 
+      @Bean public B getB() { return new B(); } 
+    }
+    => @Bean annotation provides initMethod and destroyMethod attributes to perform certain actions after bean initialization or 
+        before bean destruction by a container.
+    Example:
+    A.java=> public class A { public void init(){ System.out.println("Init method Called");  public void destroy(){ System.out.println("destroy method"); }}
+    B.java=> @Configuration public class B { @Bean(initMethod="init", destroyMethod="destroy") public A a(){ return new A(); }
+    
+Stereotype Annotations:
+  => These annotations are used to create spring beans automatically in the application context (Spring Ioc Container).
+  => The main stereo type annotation is @Component
+  => By using this annotation, Spring provides more stereotype meta annotations such as @Service, @Repository and @Controller.
+  => @Service annotations is used to create spring beans at the Service layer.
+  => @Repository is used to create spring beans for the repositories at the DAO layer.
+  => @Controller is used to create spring beans at the controller layer.
+  
+@Lazy:
+  => By default, Spring creates all singleton beans eagerly at the startup / bootstrapping of the application context.
+  => You can load the Spring beans lazily (on demand) using @Lazy annotation.
+  => @Lazy annotation can used with @Configuration, @Component and @Bean annotations.
+  => Eager initialization is recommended: to avoid and detect all possible errors immediately rather than at runtime.
+  Example:
+  A.java=> public class A { public String hello(){ Sysout("eager loading"); } }
+  B.java=> @Lazy public class B { public String hello(){ Sysout("lazy loading"); } }
+  Output: eager loading
+  lazy loading will not get until call us. lazily means on demand.
+  
+
+  
+  
+    
+    
+
+              
+              
+              
