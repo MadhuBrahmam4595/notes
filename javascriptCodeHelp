@@ -69,4 +69,24 @@ var noofbills = $("#noofbills").val();
 				alert("Remarks is Required, Fill that"); return false;
 			}
 		}
+#for finding duplicate
 
+	function findDuplicates(arr) {
+		const duplicates = [];
+		const tracker = {};
+
+		for (let i = 0; i < arr.length; i++) {
+			const value = arr[i];
+
+			// Check if the value already exists in the tracker
+			if (tracker[value.noteNumber]) {
+				// If it exists, add it to the duplicates array
+				duplicates.push(value.noteNumber);
+			} else {
+				// If it doesn't exist, mark it as seen in the tracker
+				tracker[value.noteNumber] = true;
+			}
+		}
+
+		return duplicates;
+	}
