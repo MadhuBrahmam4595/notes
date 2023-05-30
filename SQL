@@ -1,9 +1,29 @@
 # inserting rows in a table from two different tables
+======================================================
 => Syntax: INSERT INTO table1(col1,col2) SELECT tab2.col1, tab3.col1 from table2 tab2, table3 tab3 where tab2.col1=tab3.col1
 => Example: insert into user_roles(userid,roleid)select u.userid,l.roleid from usersapi u, login_users l where u.username=l.username
 
 # FIND DB SIZE SCHEMAWISE
-SELECT schema_name, 
+=========================
+1. SELECT
+  schema_name,
+  pg_size_pretty(total_size) AS total_size
+FROM (
+  SELECT
+    nspname AS schema_name,
+    SUM(pg_total_relation_size(C.oid)) AS total_size
+  FROM
+    pg_class C
+    JOIN pg_namespace N ON (N.oid = C.relnamespace)
+  WHERE
+    nspname NOT LIKE 'pg_%'
+    AND nspname != 'information_schema'
+  GROUP BY
+    nspname
+) AS sizes
+ORDER BY
+  total_size DESC;
+2. SELECT schema_name, 
        pg_size_pretty(sum(table_size)::bigint),
        (sum(table_size) / pg_database_size(current_database())) * 100
 FROM (
@@ -13,5 +33,6 @@ FROM (
      JOIN pg_catalog.pg_namespace ON relnamespace = pg_catalog.pg_namespace.oid
 ) t
 GROUP BY schema_name
-ORDER BY schema_name
+ORDER BY schema_name;
+
 
