@@ -1,0 +1,17 @@
+Store image as base64 in DB using SB MVC
+=========================================
+front end page
+--------------
+<form:form action="./itemReceivedSave" method="post" modelAttribute="itemReceived" enctype="multipart/form-data">
+<input class="form-control" name="stock_doc" type="file">
+</form:form>
+Controller
+-----------
+public String save(MultipartFile stock_doc){
+  byte[] stock_docBytes = stock_doc.getBytes();
+  String stock_docBytes64String = Base64.getEncoder().encodeToString(stock_docBytes);
+  //setting to the saving bean
+  itemReceived.setStock(stock_docBytes64String);
+  //saving
+  itemReceivedRepo.save(itemReceived);
+}
