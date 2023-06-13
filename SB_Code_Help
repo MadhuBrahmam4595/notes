@@ -11,8 +11,10 @@ SENDING USERNAME ALONG WITH SESSION IN SB SECURITY 2
         return "dashboard";
     }
     
-STORE IMAGE AS BASE64 IN DB
+STORE IMAGE AS BASE64 IN DB AND DISPLAY
 =========================================
+STORE
+-------
 front end page
 --------------jsp
 <form:form action="./itemReceivedSave" method="post" modelAttribute="itemReceived" enctype="multipart/form-data">
@@ -28,6 +30,9 @@ public String save(MultipartFile stock_doc){
   //saving
   itemReceivedRepo.save(itemReceived);
 }
+DISPLAY
+--------
+<img src="data:image/png;base64,${orderdetails.pocopy}" alt="Image" width="40px;" height="40px;" />
 
 CUSTOM ID GENERATION
 ====================
