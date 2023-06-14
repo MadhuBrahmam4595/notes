@@ -15,6 +15,7 @@ STORE IMAGE AS BASE64 IN DB AND DISPLAY
 =========================================
 STORE
 -------
+bean class===> private String pocopy;
 front end page
 --------------jsp
 <form:form action="./itemReceivedSave" method="post" modelAttribute="itemReceived" enctype="multipart/form-data">
@@ -33,6 +34,28 @@ public String save(MultipartFile stock_doc){
 DISPLAY
 --------
 <img src="data:image/png;base64,${orderdetails.pocopy}" alt="Image" width="40px;" height="40px;" />
+
+
+STORE PDF FILE AS BYTE ARRAY AND DISPLAY
+=========================================
+STORE
+-----
+bean class =>  private byte[] requisition;
+controller method => 
+saving => itemReturned.setRequisition(requisition_doc.getBytes());
+getting => 
+@RequestMapping("/test")
+	public String test(Model model) {
+		 Optional<ItemReturned> item = itemReturnedRepo.findById("NICAPSC23006");
+		 String img = Base64.getEncoder().encodeToString(item.get().getRequisition());
+		 System.out.println("img======> "+img);
+		 model.addAttribute("item", item.get());
+		 model.addAttribute("img", img);
+		return "test";
+	}
+DISPLAY
+-------
+<iframe src="data:application/pdf;base64,${img}" width="800" height="600"></iframe>
 
 CUSTOM ID GENERATION
 ====================
