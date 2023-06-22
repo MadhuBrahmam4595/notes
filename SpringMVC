@@ -4,3 +4,10 @@
     <input type="radio" name="gender" value="female" ${gender == 'female' ? 'checked' : ''}> Female
     <input type="radio" name="gender" value="other" ${gender == 'other' ? 'checked' : ''}> Other
 </form>
+
+#SETTING MODEL ATTRIBUTE TO SELECT INPUT IN JSP/HTML
+<form:select path="emp_code" id="emp_code" class="form-control">
+	<c:forEach var="entry" items="${employee}">
+    	<option value="${entry.key}" ${entry.key == selectedOption ? 'selected' : ''}>${entry.key}-${entry.value}</option>
+	</c:forEach>
+</form:select>
