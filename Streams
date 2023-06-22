@@ -1,3 +1,11 @@
+FOR FIND UNIQUE VALUES FROM STRING ARRAY
+=========================================
+List<String> list = Arrays.asList(strarray);
+List<String> reqList = list.stream().distinct().collect(Collectors.toList());
+
+
+
+
 => Streams are using for process objects of the collection.
 
 => What is the Differences between java.util.streams and java.io.streams?
