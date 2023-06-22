@@ -1,3 +1,19 @@
+#VALIDATE RADIO INPUT 
+======================
+<input type="radio" name="issuereturn"  class="form-check-input" value="issue" />Issue
+<input type="radio" name="issuereturn"  class="form-check-input" value="return" />Return
+
+<script>
+var issuereturn = document.getElementsByName("issuereturn");
+var radioSelected = false;
+for(var i=0; i<issuereturn.length;i++){
+	if(issuereturn[i].checked){ radioSelected = true; break; }
+}
+if(!radioSelected){
+	alert("Please choose Issue/Return, It should not empty!!!"); return false;
+}
+</script>
+
 #form submit using JS
 document.forms[0].action="./empCEASOPrint";
 document.forms[0].submit();
