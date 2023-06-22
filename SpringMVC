@@ -1,0 +1,6 @@
+#SETTING MODEL ATTRIBUTE TO RADIO BUTTON IN JSP/HTML
+<form>
+    <input type="radio" name="gender" value="male" ${gender == 'male' ? 'checked' : ''}> Male
+    <input type="radio" name="gender" value="female" ${gender == 'female' ? 'checked' : ''}> Female
+    <input type="radio" name="gender" value="other" ${gender == 'other' ? 'checked' : ''}> Other
+</form>
