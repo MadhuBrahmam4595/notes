@@ -39,15 +39,19 @@ document.forms[0].submit();
 }
 
 # set json value to the dropdown
+====================================
 $('#updatepatient_name').val(patient_name);
 
 #set string value to the javascript function
+================================================
 <input type="button" value="Generate Sanction Order" onClick="return generateSO(\''+gem.requestno+'\')"/>
 
 #redirect to new jsp page on ajax success
+============================================
 document.location.href='/home';
 
-#convert Money number to Words 
+#convert Money number to Words
+===============================
 function myFunction() {
 		alert("myFunction");
 		var num = '<%=words%>';
@@ -74,6 +78,7 @@ function myFunction() {
 	}
 	
 # validate loop input values 
+==================================
 <input type="hidden" name="noofbills" id="noofbills" value="${noofbills }"/>
 <c:set var = "count" value="0" scope="page"/>
 <c:forEach var="list1" items="${list1}">
