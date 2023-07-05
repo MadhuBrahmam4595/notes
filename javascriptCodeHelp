@@ -25,10 +25,12 @@ const radioInputs = document.querySelectorAll('input[name="issuereturn"]');
 
 
 #form submit using JS
+========================
 document.forms[0].action="./empCEASOPrint";
 document.forms[0].submit();
 
 #scroll bar for table
+======================
 <div id="scrollbar"> <div id="content"></div> </div>
 #scrollbar {
 	width: 800px;
