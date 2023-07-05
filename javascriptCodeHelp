@@ -1,5 +1,5 @@
-#VALIDATE RADIO INPUT 
-======================
+#VALIDATE RADIO INPUT AND GET SELECT VALUE
+==========================================
 <input type="radio" name="issuereturn"  class="form-check-input" value="issue" />Issue
 <input type="radio" name="issuereturn"  class="form-check-input" value="return" />Return
 
@@ -12,7 +12,17 @@ for(var i=0; i<issuereturn.length;i++){
 if(!radioSelected){
 	alert("Please choose Issue/Return, It should not empty!!!"); return false;
 }
+
+const radioInputs = document.querySelectorAll('input[name="issuereturn"]');
+			let selectedValue = null;
+			
+			radioInputs.forEach(input => {
+			    if (input.checked) {
+			      selectedValue = input.value;
+			    }
+			  });
 </script>
+
 
 #form submit using JS
 document.forms[0].action="./empCEASOPrint";
