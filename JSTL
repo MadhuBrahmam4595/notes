@@ -1,4 +1,5 @@
 #String date to dd-MM-yyyy
+============================
 <fmt:parseDate var="podate" value="${bean.podate }" pattern="yyyy-MM-dd" />
 <fmt:formatDate value="${podate}" pattern="dd-MM-yyyy" var="formattedpodate" />
 <td>${formattedpodate }</td>
