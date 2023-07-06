@@ -3,3 +3,33 @@ if else condition
  <a class="btn btn-primary" th:if="${user.role} == 'ADMIN'">Update</a>
             <a class="btn btn-danger" th:if="${user.role} == 'ADMIN'">Delete</a>
             <a class="btn btn-primary" th:unless="${user.role} == 'ADMIN'">View</a>
+
+#on change creating select input 
+================================
+function findByAgencycode(){
+	
+	var homeAgency = $("#homeAgency").val();
+	
+	$.ajax({
+		type:"get",
+		url:"./findByAgencycode?agencycode="+homeAgency,
+		cache: false,
+		success:function(data){
+			//alert("resp=>"+JSON.stringify(data));
+			
+			var selectInput = $('#txtSupplyUnit');
+			selectInput.empty(); 
+			
+			 for (var i = 0; i < data.length; i++) {
+                     desiredValue = data[i].unitname;
+                     var option = $('<option>').val(desiredValue).text(desiredValue);
+                     selectInput.append(option);
+             }
+			
+		},
+		error:function(resp){
+			
+		}
+	});
+	
+}
