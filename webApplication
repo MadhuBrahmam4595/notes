@@ -1,0 +1,35 @@
+Web Application Count
+====================
+  <%
+ Integer  hitsCount = 0;
+ 
+    hitsCount = (Integer)application.getAttribute("hitCounter");
+          System.out.println("hitsCount=>"+hitsCount);
+         
+          if( hitsCount ==null || hitsCount == 0 ) {
+            /* First visit */
+            hitsCount = 1;
+         } else {
+            /* return visit */
+            hitsCount += 1;
+         }
+         application.setAttribute("hitCounter", hitsCount);
+%>
+  <script>
+        $(document).ready(function(){
+            //visitorscount
+            var hitsCount = '<%=hitsCount%>';
+           // alert("hitsCount=>"+hitsCount);
+            if(hitsCount === 'null'){
+                document.getElementById("visitorscount").innerHTML = "0";
+            }else{
+                document.getElementById("visitorscount").innerHTML = hitsCount;
+            }
+            
+            
+        });
+
+    </script>
+      <span id="visitorscount" 
+                                                   style="margin-left: 10px;color: #66d9ff;"
+                                                   ></span>
