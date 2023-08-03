@@ -131,3 +131,24 @@ String input = "thanksyousomuch";
 		//Skip & limit method use case based example
 		IntStream.range(1, 10).skip(1).limit(8).forEach(System.out::print);
 		//output: 23456789
+
+ITERATE TWO LIST OBJECTS AND UPDATE VALUES  
+===========================================
+List<Placement> plcmt = placementRepo.getPlcmtByAdmnum(admNum);
+			List<ItiTradeMaster> itiMast = itiTradeMasterRepo.findAll();
+			
+			IntStream.range(0, Math.min(plcmt.size(), itiMast.size()))
+			.forEach(index ->{
+				Placement placement = plcmt.get(index);
+				ItiTradeMaster itiTradeMaster = itiMast.get(index);
+				
+				if(placement.getTrade_code().equals(itiTradeMaster.getTradeCode())) {
+					placement.setTrade_name(itiTradeMaster.getTradeName());
+				}
+			});
+ITERATE LIST AND UPDATE VALUE
+==============================
+List<Iti> itis = itiRepo.findAll();
+Optional<Iti> itiNames = itis.stream().filter(a -> a.getItiCode().equals(admNumData.getIti_code())).findFirst();
+			if(itiNames.isPresent()) { admissionModel.setIti_name(itiNames.get().getItiName()); }
+			System.out.println("itiNames"+itiNames.get().getItiName());
