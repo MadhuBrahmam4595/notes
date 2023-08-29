@@ -1,0 +1,13 @@
+# Saving form data as timestamp without timezone in postgresql from html form
+************************************************************************************
+<input type="datetime-local" step="1" name="application_from_date" value="<%=application_from_date%>"/><span style="color: red;">* MM/dd/YYYY HH:mm:SS</span>
+
+  <%@page import="java.sql.Timestamp"%>
+<%@page import="java.text.SimpleDateFormat"%>
+  String application_from_date = request.getParameter("application_from_date").replace("T", " "); System.out.println("application_from_date=>"+application_from_date);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        java.util.Date application_from_datedate = sdf.parse(application_from_date);
+        Timestamp saveapplication_from_date = new java.sql.Timestamp(application_from_datedate.getTime());
+        System.out.println("saveapplication_from_date=>"+saveapplication_from_date);
+
+preparedStatement2.setTimestamp(5, saveapplication_from_date);
