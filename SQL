@@ -50,6 +50,7 @@ WHERE pid = 'pid_of_session';
 ====================================
 ALTER TABLE table_name OWNER TO new_owner;
 
-
-
-
+#replace column data
+=====================
+UPDATE my_table SET my_column = TRIM(BOTH ' ' FROM my_column);
+UPDATE my_table SET my_column = REPLACE(my_column, ' ', '');
