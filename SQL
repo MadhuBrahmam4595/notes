@@ -1,3 +1,8 @@
+# RESTORE DB DUMP FILE INTO DATABASE USING COMMAND PROMPT WINDOWS
+===================================================================
+-> C:\Program Files\PostgreSQL\12\bin>psql -U postgres -d dca_staging -h localhost -p 5434  -f C:\Users\swamy\Desktop\DCA_Files\dca_staging.sql
+-> Password for user postgres:
+
 # inserting rows in a table from two different tables
 ======================================================
 => Syntax: INSERT INTO table1(col1,col2) SELECT tab2.col1, tab3.col1 from table2 tab2, table3 tab3 where tab2.col1=tab3.col1
