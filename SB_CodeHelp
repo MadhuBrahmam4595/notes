@@ -10,4 +10,36 @@ SENDING USERNAME ALOGN WITH SESSION IN SB SECURITY 2
 		System.out.println("session values is"+session.getAttribute("username"));
         return "dashboard";
     }
-    
+
+MODEL ATTRIBUTE VALIDATIONS FOR WEB APPLICATION
+====================================================
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+<form:form action="./login" method="post" modelAttribute="loginRequestModel">
+				<h6 class="h6 m-1">OFFICIAL LOGIN</h6>
+				<form:input type="text" path="username" id="username" class="form-control w-50 m-1" placeholder="Username" />
+				<form:errors path="username" class="text-danger" />
+				<form:input type="password" path="password" id="password" class="form-control w-50 m-1" placeholder="Password" />
+				<form:errors path="password" class="text-danger" /><br>
+				<input type="submit" class="form-control w-50 m-1 btn btn-success" value="Login" />
+				</form:form>
+public class LoginRequestModel {
+	
+	@Size(min = 5, max = 50)
+	private String username;
+	@Size(min = 8, max = 50)
+	private String password;
+}
+@RequestMapping("/login")
+	public String login(@Valid @ModelAttribute LoginRequestModel loginRequestModel,BindingResult bindingResult,Model model) {
+		System.out.println("bean=>"+loginRequestModel.toString());
+		if (bindingResult.hasErrors()) {
+			System.out.println("hasErros");
+			return "Home";
+		}
+		
+		return "Home";
+	}
