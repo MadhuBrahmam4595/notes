@@ -1,0 +1,109 @@
+REST APPLICATION
+==================
+public class ApiError {
+	private HttpStatus httpStatus;
+	private Map<String,String> errors;
+}
+--------------------------------------------------------------------------------------------------------------------
+package com.app.exceptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+@ControllerAdvice
+public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler{
+	
+	@Override
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+			HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+		// TODO Auto-generated method stub
+		
+		  Map<String,String> errors = new HashMap<String, String>();
+		
+		for(FieldError error:ex.getBindingResult().getFieldErrors()){
+			System.out.println("handleMethodArgumentNotValid=>FieldError");
+			errors.put(error.getField(), error.getDefaultMessage());
+		}
+		
+		for(ObjectError error:ex.getBindingResult().getGlobalErrors()){
+			System.out.println("handleMethodArgumentNotValid=>ObjectError");
+			errors.put(error.getObjectName(), error.getDefaultMessage());
+		}
+		
+		ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, errors);
+		
+		return handleExceptionInternal(ex, apiError, headers, apiError.getHttpStatus(), request);
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------
+public class UserRegRequestModel {
+	
+	@Size(min = 3, max = 50)
+	private String username;
+	@Size(min = 3, max = 50)
+	private String password;
+	
+	@Min(1)
+	@Max(20)
+	private String roleId;
+	@Min(1)
+	@Max(20)
+	private String insCode;
+}
+-------------------------------------------------------------------------------------------------------------------------
+@PostMapping("/register-user")
+	public ResponseEntity<?> userReg(@Valid @RequestBody UserRegRequestModel model){
+		
+		return null;
+	}
+
+
+WEB APPLICATION
+==========================
+MODEL ATTRIBUTE VALIDATIONS FOR WEB APPLICATION
+====================================================
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+----------------------------------------------------------------------------------------------------------------------------------
+<form:form action="./login" method="post" modelAttribute="loginRequestModel">
+				<h6 class="h6 m-1">OFFICIAL LOGIN</h6>
+				<form:input type="text" path="username" id="username" class="form-control w-50 m-1" placeholder="Username" />
+				<form:errors path="username" class="text-danger" />
+				<form:input type="password" path="password" id="password" class="form-control w-50 m-1" placeholder="Password" />
+				<form:errors path="password" class="text-danger" /><br>
+				<input type="submit" class="form-control w-50 m-1 btn btn-success" value="Login" />
+				</form:form>
+-------------------------------------------------------------------------------------------------------------------------------
+public class LoginRequestModel {
+	
+	@Size(min = 5, max = 50)
+	private String username;
+	@Size(min = 8, max = 50)
+	private String password;
+}
+----------------------------------------------------------------------------------------------------------------------------------
+@RequestMapping("/login")
+	public String login(@Valid @ModelAttribute LoginRequestModel loginRequestModel,BindingResult bindingResult,Model model) {
+		System.out.println("bean=>"+loginRequestModel.toString());
+		if (bindingResult.hasErrors()) {
+			System.out.println("hasErros");
+			return "Home";
+		}
+		
+		return "Home";
+	}
