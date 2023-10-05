@@ -30,4 +30,5 @@
        => Ur return type of the repository method is writtern a class instead of entity class of the repository.
        => Solution is you need to create getter method for every parameter of the custom class variable which is your repository method returning class.
        => Ex: public interface Demo{ String getFirstName(); String getLastName();}
-       
+8. org.springframework.beans.factory.UnsatisfiedDependencyException: 
+       => Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to load driver class org.postgresql.Driver in either of HikariConfig class loader or Thread context classloader
