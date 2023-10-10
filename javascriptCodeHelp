@@ -123,3 +123,54 @@ var noofbills = $("#noofbills").val();
 
 		return duplicates;
 	}
+
+# CAPTCHA GENERATION AND VALIDATION USING JAVASCRIPT
+=======================================================
+function generateCaptcha()
+        {
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+            var i;
+            for (i=0;i<4;i++){
+              var a = alpha[Math.floor(Math.random() * alpha.length)];
+              var b = alpha[Math.floor(Math.random() * alpha.length)];
+              var c = alpha[Math.floor(Math.random() * alpha.length)];
+              var d = alpha[Math.floor(Math.random() * alpha.length)];
+             }
+           var code = a + '' + b + '' + '' + c + '' + d;
+           document.getElementById("mainCaptcha").value = code;
+         }
+ var txtInput = $("#txtInput").val();
+             var mainCaptcha = $("#mainCaptcha").val();
+             
+//              alert("txtInput"+txtInput);
+//              alert("mainCaptcha"+mainCaptcha);
+             
+             if (txtInput === null || txtInput === "") {
+                 $("#captchaError").html("Captcha is required");
+                 return false;
+             }
+             if(txtInput !== mainCaptcha){
+                 $("#txtInput").val('');
+                 $("#captchaError").html("Given Captcha is not matched.");
+                 return false;
+             }
+$(document).ready(function(){
+			//alert("asdfasdfasdf")
+			generateCaptcha();
+		});
+<div class="row">
+						<div class="col-12">
+							<label for="captcha" class="form-label">Captcha</label>
+							<input type="text" id="txtInput" class="form-control w-50" autocomplete="off" maxlength="4"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<input type="text" id="mainCaptcha" readonly="readonly" class="form-control w-100 mb-1 mt-1" 
+                      		 style='letter-spacing: 30px; font-weight: bolder; color: white; background-color: black;'  />
+						</div>
+						<div class="col-6">
+							<image src="../images/refresh_png.png" class="float-left mt-1" alt="refresh" width="50" height="40" id='refresh' onclick="generateCaptcha();"/>
+						</div>
+					</div>
+					<span id="captchaError"></span><br>
