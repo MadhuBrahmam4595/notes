@@ -1,0 +1,33 @@
+Q1. Why will you choose Spring boot over Spring Framework?
+=> Dependency Resolution / Avoid Version Conflict
+=> Avoid additional configuration
+=> Embed Tomcat, Jetty (no need to deploy war files)
+=> Provide production-ready features such as metrics, health checks
+
+Q2. What all spring boot starter you have used or what all module you have worked on?
+=> spring boot starter web
+=> spring boot starter data JPA
+=> spring boot starter AOP
+=> spring boot starter web services
+=> spring boot starter security
+=> spring boot starter for Apache Kafka
+=> spring boot starter for Spring Cloud
+=> spring boot starter thymeleaf
+
+Q3. How will you run your Spring Boot Application?
+=> by run the main method class
+=> by using terminal with command "mvn spring-boot:run"
+
+Q4. What is the purpose of the @SpringBootApplication annotation in a Spring Boot application?
+=> it's a combination of following three annotations,those are @EnableAutoConfiguration, @ComponentScan and @Configuration
+=> we can use above three annotations instead of @SpringBootApplication annotation
+
+Q5. How can you disable a specific auto-configuration class in Spring Boot?
+=> in main class - @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, AOPConfiguration.class})
+=> in application.properties - spring.autoconfigure.exclude = org.springframework.boot.autoconfigure.aop.AopAutoConfigure 
+
+Q6. How Spring boot run() method works internally?
+=> Create Application Context
+=> Register bean into context
+=> Kicked up embeded tomcat container to run your jar/war
+
