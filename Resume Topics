@@ -1,12 +1,97 @@
-CORE JAVA------OOPS, Collections, Exception Handling, Generics, Java 8
-ADV JAVA-------JDBC, Servlets, JSP
-SPRING---------Core, Jdbc, ORM, Web MVC, E-Mail, Scheduling, AOP, Rest WS, JMS, JAAS
-SPRING BOOT----Core, Data Jpa, Web MVC, E-Mail, Batch Processing, Rest (Provider & Consumer)
-ORM------------Hibernate
-Database-------Postgresql, SQL
-Web Techs------HTML, CSS, Javascript, JQuery and Bootstrap
-TOOLS----------Maven, Log4j, Agile
-TESTING--------JUnit, Mockito
-Servers--------Tomcat
-Platforms------Windows
-Methodologies--Agile
+JAVA:
+*****
+	CORE
+	----
+	1. Java Basics (loops, Array, String)
+	2. OOPS Concepts
+	3. Collections and Generics
+	4. Exception Handling
+	5. Multi-threading
+	6. Functional programming (Java 8)
+	7. File I/O
+	8. Data Structures and Algorithms
+	
+	ADVANCE
+	-------
+	9.  JDBC
+	10. Servlet
+	11. JPA
+	12. JAX-RS
+	13. Design Patterns
+	14. Thymeleaf
+
+Spring Framework
+****************
+	Spring Core
+	-----------
+	1. DI
+	2. IOC
+	3. Spring Beans
+	4. Spring Configuration Style
+
+	Spring Security
+	---------------
+	4. Authentication
+	5. Authorization
+	6. JWT
+
+	7. Spring AOP
+	8. Spring MVC
+	9. Spring Data JPA
+	10. Spring Boot
+	11. Spring Cloud
+	
+	12. Hibernate Framework
+
+Web-Services
+************
+	1. Spring Restful WS
+
+Databases
+*********
+	RDBMS
+	-----
+	1. MySQL
+	2. PostgreSQL
+	3. Oracle
+	4. MS-SQL
+
+	NoSQL
+	-----
+	1. MongoDB
+	2. Casandra
+
+Frontend Technologies
+*********************
+	1. HTML5
+	2. CSS
+	3. Java Script
+	4. JQuery
+	5. Boostrap
+	6. ReactJS
+
+Unit and Integration Testing
+****************************
+	1. AssertJ Library
+	2. JUnit Framework
+	3. Mockito Framework
+
+Essential Skills
+****************
+	1. Git
+	2. SQL
+
+IDE's
+*****
+	1. Eclipse
+	2. IntelliJ
+	3. VS Code
+
+Tools
+*****
+	1. Git
+	2. Docker
+	3. Maven
+	4. Gradle
+	5. Log4j
+	6. Agile
