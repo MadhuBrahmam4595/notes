@@ -1,23 +1,11 @@
-CORE JAVA
-------OOPS, Collections, 
-
-ADV JAVA
------JDBC, Servlets, JSP
-
-SPRING
------Core, Jdbc, ORM, Web MVC, E-Mail, Scheduling, AOP, Rest WS, JMS, JAAS
-
-SPRING BOOT
------Core, Data Jpa, Web MVC, E-Mail, Batch Processing, Rest (Provider & Consumer)
-
-Database
------Postgresql, Oracle
-
-Frontend Technologies
------HTML, CSS, Javascript, JQuery and Bootstrap
-
-TOOLS
------Maven, Log4j, Agile
-
-TESTING
------JUnit, Mockito
+CORE JAVA------OOPS, Collections, Exception Handling, Generics, Java 8
+ADV JAVA-------JDBC, Servlets, JSP
+SPRING---------Core, Jdbc, ORM, Web MVC, E-Mail, Scheduling, AOP, Rest WS, JMS, JAAS
+SPRING BOOT----Core, Data Jpa, Web MVC, E-Mail, Batch Processing, Rest (Provider & Consumer)
+ORM------------Hibernate
+Database-------Postgresql, Oracle
+Web Techs------HTML, CSS, Javascript, JQuery and Bootstrap
+TOOLS----------Maven, Log4j, Agile
+TESTING--------JUnit, Mockito
+Servers--------Tomcat
+Platforms------Windows
