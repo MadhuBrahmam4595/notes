@@ -1,0 +1,16 @@
+controller
+-----------
+private static final Logger logInfo = LoggerFactory.getLogger(UserController.class);
+
+application.properties
+------------------------
+#logging level
+logging.level.com.example.demo=DEBUG
+
+#Logging pattern for the console 
+logging.pattern.console=%date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n
+
+#logging file
+logging.file.name=application.log
+logging.pattern.file= %date{ISO8601} %-5level %class{0}:%L - [%X] %msg%n
+
