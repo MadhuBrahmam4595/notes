@@ -1,0 +1,37 @@
+1. What is Debugging?
+Ans: 
+-> Debugging is the process of finding and resolving the defects or problems within a computer program that prevent correct 
+operation of computer software or a system.
+-> It's must have skill for any developer because it helps to find bugs that are not visible during code reviews or that only 
+happens when a specific condition occurs.
+-> Debugging helps the developers in control flow analysis, unit testing, integration testing, monitoring at the application 
+execution flow etc.
+
+2. Difference between Testing and Debugging?
+Ans:
+Testing: 							Debugging
+purpose is to find bug						purpose to find cause of bug
+It proves a programmer failure					It is the programmers vindication
+Done by Testing team						Done by developer team
+Testing involves identify software defect without		Debugging is deeper process than the Testing. Debugging involves
+its correction.							identifying, isolating and fixing the bugs
+
+
+Debugging Procedure
+--------------------
+-> Choose the program / method which you want to Debug.
+-> Toggle the Breakpoint at particular line (Ctrl + Shift + B)
+-> Run/Start the program/server Debug Mode
+-> Confirm the debug perspective switch
+-> Control program execution using Eclipse provided options or using keyboard shortcuts
+
+Shortcuts
+---------
+F5 (Step into) 		- steps into the call
+F6 (Steps Over) 	- steps over the call
+F7 (Steps Return) 	- steps out to the caller
+F8 (Resume) 		- Resumes the execution
+Ctrl + R (Run to Line) 	- Run to the line number of the current caret position
+Drop to Frame		- Return a part of your program
+Shift + F5 (Use Step Filters	- Skipping the packages for step into 
+Ctrl + F5 / Ctrl + Alt + Click	- Step into selection
