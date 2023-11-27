@@ -174,3 +174,50 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<span id="captchaError"></span><br>
+
+
+
+#PHoTO VALIDATION (FILE INPUT)
+*******************************
+ var photo = document.getElementById('photo');
+		 if (photo.files.length > 0) {
+	            var file = photo.files[0];
+
+	            // Check if the file type is allowed
+	            var allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+	            if (allowedTypes.includes(file.type)) {
+	               // console.log("File is a valid image:", file.name);
+	            } else {
+	            	$("#photoError").html("Invalid Photo file type. Please select a JPEG, PNG or JPG image."); $("#photoError").css({"color": "red"}); 
+					$("#photo").focus(); 
+					return false; 
+	            }
+	            
+	            if (file.size > 100 * 1024) {
+	            	$("#photoError").html("File size exceeds 100KB. Please select a smaller image."); $("#photoError").css({"color": "red"}); 
+					$("#photo").focus(); 
+					return false; 
+	            }
+	        } 
+		// Ensure that a file is selected
+        if (photo.files.length > 0) {
+            var file = photo.files[0];
+
+            // Create a FileReader
+            var reader = new FileReader();
+
+            // Define a function to be executed when the file is read
+            reader.onload = function (e) {
+                // e.target.result contains the Base64-encoded string
+                var base64String = e.target.result;
+                //alert("Base64 String:"+base64String);
+            };
+
+            // Read the file as Data URL (Base64)
+            reader.readAsDataURL(file);
+        } else {
+           // alert("Please select a file.");
+				$("#photoError").html("Student Photo is required please upload."); $("#photoError").css({"color": "red"}); 
+				$("#photo").focus(); 
+				return false; 
+        }
