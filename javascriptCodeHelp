@@ -221,3 +221,16 @@ $(document).ready(function(){
 				$("#photo").focus(); 
 				return false; 
         }
+
+date validation
+================
+	var dob = $("#dob").val();
+        // Parse the original date
+        var parts = dob.split('-');
+        var year = parts[0];
+        var month = parts[1];
+        var day = parts[2];
+
+        // Construct the new date string in the desired format
+        var convertedDate = day + '-' + month + '-' + year;
+--------------------------------------------------------------------------
