@@ -234,3 +234,21 @@ date validation
         // Construct the new date string in the desired format
         var convertedDate = day + '-' + month + '-' + year;
 --------------------------------------------------------------------------
+showing Image from base64 values
+===================================
+	// Create an img element
+					var imgElement = document.createElement("img");
+					imgElement.src = 'data:image/png;base64,'
+							+ resp.imageCandPhotosEntity.image;
+
+					// Set other attributes as needed (e.g., width, height)
+					imgElement.width = 300;
+					imgElement.height = 200;
+
+					// Append the img element to the image container
+					document.getElementById("imageContainer").appendChild(
+							imgElement);
+<div id="imageContainer" align="center"></div>
+
+
+
