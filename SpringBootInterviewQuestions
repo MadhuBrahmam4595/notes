@@ -1,0 +1,192 @@
+Q1. Spring Boot is used for developing? 
+Ans: Spring boot is used to build Web applications, REST APIs, and Microservices.
+===================================================================================================================================================================================
+Q2. What is Spring Initializer? 
+Ans: Web-based tool to bootstrap Spring projects and generate project skeletons with the necessary configurations and dependencies.
+Explanation: 
+Spring Initializr is a web-based tool provided by the Spring team to bootstrap Spring projects and generate project skeletons with the necessary 
+configurations and dependencies. It simplifies the process of creating a new Spring-based application by providing an intuitive user interface to customize and generate project 
+structures.
+===================================================================================================================================================================================
+Q3. What does Spring Boot do to simplify the configuration of a Spring-based application?
+Ans: Automatically configures necessary beans and dependencies
+Explanation:
+Spring Boot's auto-configuration feature automatically configures the application based on the classpath dependencies and predefined conventions. 
+It scans the classpath for libraries and frameworks and configures the application accordingly, reducing the need for manual configuration.
+===================================================================================================================================================================================
+Q4. How can a Spring Boot application be packaged and distributed?
+Ans: Spring Boot application can be distributed as JAR, WAR, and Zip files.
+===================================================================================================================================================================================
+Q5. Which Spring annotation is used to create RESTful web services using Spring MVC?
+Ans:  @RestController
+Explanation:
+When you annotate a class with @RestController, it indicates that the class is a Spring MVC REST controller 
+responsible for handling incoming HTTP requests and generating the appropriate HTTP responses.
+===================================================================================================================================================================================
+Q6. @RestController annotation is a combination of the below two annotations
+Answer: @Controller and @ResponseBody annotations
+Explanation:
+@RestController combines the functionality of the @Controller and @ResponseBody annotations into a single annotation, making it convenient for creating RESTful APIs.
+===================================================================================================================================================================================
+Q7. Which annotation do we use to mark the class as a Service class/component?
+Answer: @Service
+Explanation:
+The @Service annotation is used in Spring Framework to mark a class as a service component. It is typically applied to classes that perform business logic, 
+transaction management, or other services in an application.
+===================================================================================================================================================================================
+Q8. Which is the default implementation class of the JpaRepository interface?
+Answer: SimpleJpaRepository class
+Explanation:
+The SimpleJpaRepository class is a default implementation of the JpaRepository interface in Spring Data JPA. It is provided by the Spring Data JPA framework and serves as a generic
+repository implementation for performing common CRUD (Create, Read, Update, Delete) operations and other database operations.
+===================================================================================================================================================================================
+Q9. Which is the default HTML template in Spring Boot
+Answer: Thymeleaf
+Explanation:
+The default HTML template engine in Spring Boot is Thymeleaf. Thymeleaf is a modern server-side Java template engine that is designed for both web and standalone environments. 
+When you create a new Spring Boot project with spring-boot-starter-thymeleaf dependency. Spring boot enables Thymeleaf as the default HTML template engine. Spring Boot automatically 
+configures Thymeleaf with sensible defaults, making it straightforward to start using Thymeleaf for rendering HTML templates in your application.
+===================================================================================================================================================================================
+Q10. What is the purpose of the Spring Boot Actuator? 
+Answer: To provide production-ready features such as monitoring and metrics
+Explanation:
+The purpose of the Spring Boot Actuator is to provide production-ready features and monitoring capabilities for Spring Boot applications. 
+It offers a set of powerful endpoints and tools that enable developers and system administrators to monitor, manage, and interact with a Spring Boot application in a production environment.
+===================================================================================================================================================================================
+Q11. How can you specify the port on which a Spring Boot application runs? 
+Spring Boot provides several ways to change the server port on which your application listens. You can choose the most convenient option based on your specific requirements and preferences. 
+
+Here are some common methods to change the server port in Spring Boot: 
+application.properties or application.yml: You can modify the application.properties or application.yml file in your Spring Boot project and set the server.
+port property to the desired port number. 
+
+Command-line argument: You can pass a command-line argument --server.port=8081 when starting the Spring Boot application. 
+This will override the port configured in the application.properties or application.yml file. 
+
+System properties: You can set a system property server.port with the desired port number when starting the application. 
+For example, you can use -Dserver.port=8081 as a JVM system property. 
+
+Environment variable: You can set an environment variable SERVER_PORT with the desired port number. 
+Spring Boot will automatically pick up the environment variable and use it as the server port.
+
+Programmatically: If you need more dynamic control over the server port, you can programmatically configure it in your Spring Boot application code. 
+You can use the ServerProperties bean to set the port programmatically.
+===================================================================================================================================================================================
+Q12. What is the purpose of the Spring Boot DevTools? 
+Answer: To provide hot-reloading of code changes and automatic application restart
+Explanation:
+One of the primary features of DevTools is automatic application restart. When enabled, any changes made to the application's classpath resources 
+(such as Java files, configuration files, templates, or static resources) trigger an automatic restart of the application. This eliminates the need for manual restarts during development,
+saving time and improving productivity.
+
+DevTools includes live reload functionality that automatically refreshes the browser when changes are detected in client-side resources such as HTML, CSS, or JavaScript files. 
+It enables you to see the changes immediately without manually refreshing the page, making frontend development more efficient.
+===================================================================================================================================================================================
+Q13. What is the difference between Spring and Spring Boot? 
+Answer: Spring Boot is an opinionated version of Spring, providing a set of default configurations
+Explanation:
+Spring is a comprehensive application development framework, while Spring Boot is a framework built on top of Spring that simplifies and accelerates the development of Spring-based
+applications. Spring Boot provides an opinionated and streamlined approach with automatic configuration, starters, and embedded servers, while Spring offers more flexibility and 
+control over configuration and application development.
+===================================================================================================================================================================================
+Q14. What is the default Logging implementation offered by Spring Boot?
+Answer: By using Logback
+Explanation:
+By default, Spring Boot prefers Logback for its rich features and simple configuration.
+===================================================================================================================================================================================
+Q15. What is the @SpringBootApplication annotation used for? 
+Answer: To enable Spring Boot auto-configuration
+Explanation:
+By including @SpringBootApplication, the class benefits from the auto-configuration, component scanning, and other features provided by Spring Boot.
+===================================================================================================================================================================================
+Q16. Which annotation Spring Boot provides for Integration testing?
+Answer: @SpringBootTest annotation
+Explanation:
+Spring Boot provides the @SpringBootTest annotation for integration testing. 
+
+The @SpringBootTest annotation is used to specify that a particular test class is an integration test that requires the Spring Boot application context to be created. 
+It loads the complete application context and allows you to test your application in an environment that closely resembles the production setup.
+===================================================================================================================================================================================
+Q17. Which annotation is used to unit test Spring MVC Controllers?
+Answer: @WebMvcTest annotation
+Explanation:
+The @WebMvcTest annotation is used to unit test Spring MVC controllers in Spring Boot. 
+
+The @WebMvcTest annotation provides a convenient way to test the controllers in isolation, without loading the entire application context. 
+It focuses on testing the web layer of the application by auto-configuring only the relevant components, such as the controllers, and their dependencies.
+===================================================================================================================================================================================
+Q18. Which Spring Boot annotation is used to unit test the Spring Data JPA repository?
+Answer: @DataJpaTest annotation
+Explanation:
+The @DataJpaTest annotation is used to unit test Spring Data JPA repositories in Spring Boot. 
+
+The @DataJpaTest annotation provides a convenient way to test the repository layer of your application by auto-configuring only the necessary components related to Spring Data JPA. 
+It sets up an in-memory database and initializes the EntityManager and necessary Spring Data JPA infrastructure for testing the repositories.
+===================================================================================================================================================================================
+Q19. What are the Spring annotations used for Exception handling?
+Explanation:
+Some of the commonly used Spring annotations for exception handling are: 
+@ControllerAdvice: The @ControllerAdvice annotation is used to define a global exception handler that applies to all controllers within the application. 
+@ExceptionHandler: The @ExceptionHandler annotation is used to define a method that handles a specific type of exception. 
+                    It is typically used in conjunction with the @ControllerAdvice annotation. 
+@ResponseStatus: The @ResponseStatus annotation is used to specify the HTTP response status code that should be sent back to the client when a particular exception occurs.
+===================================================================================================================================================================================
+Q20. What is the difference between PUT and PATCH in REST API? 
+Congratulations on completing the Spring Boot quiz! We hope it challenged your knowledge and provided valuable insights into Spring Boot concepts. 
+Assessing your understanding of the framework is crucial for building robust and efficient applications. 
+===================================================================================================================================================================================
+Q21. Spring vs Spring Boot?
+Spring:                                 
+1. A web application framework based on Java
+2. Provides tools and libraries to create customized web applications
+3. Spring is more complex than Spring Boot
+4. Takes an unopinionated view
+Spring Boot:
+1. A module of Spring
+2. Used to create a Spring application project which can just run/ execute
+3. Spring Boot is less complex than the Spring framework
+4. Takes an opinionated view of a platform
+===================================================================================================================================================================================
+Q3. Mention the advantages of Spring Boot?
+The advantages of Spring Boot are as follows:
+=> Provides auto-configuration to load a set of default configuration for a quick start of the application
+=> Creates stand-alone applications with a range of non-functional features that are common to large classes of projects
+=> It comes with embedded tomcat, servlet containers jetty to avoid the usage of WAR files
+=> Spring Boot provides an opinionated view to reduce the developer effort and simplify maven configurations
+=> Provides CLI tool to develop and test applications
+=> Comes with Spring Boot starters to ensure dependency management and also provides various security metrics
+=> Consists of a wide range of APIs for monitoring and managing applications in dev and prod.
+=> Integrates with Spring Ecosystem like Spring JDBC, Spring ORM, Spring Data, Spring Security easily by avoiding boilerplate code.
+=====================================================================================================================================================================================
+Q4. Mention a few features of Spring Boot.
+Few important features of Spring Boot are as follows:
+
+Spring CLI – Spring Boot CLI allows you to Groovy for writing Spring boot application and avoids boilerplate code.
+Starter Dependency – With the help of this feature, Spring Boot aggregates common dependencies together and eventually improves productivity
+Auto-Configuration – The auto-configuration feature of Spring Boot helps in loading the default configurations according to the project you are working on. In this way, you can avoid any unnecessary WAR files.
+Spring Initializer – This is basically a web application, which can create an internal project structure for you. So, you do not have to manually set up the structure of the project, instead, you can use this feature.
+Spring Actuator –  This feature provides help while running Spring Boot applications.
+Logging and Security – The logging and security feature of Spring Boot, ensures that all the applications made using Spring Boot are properly secured without any hassle.
+===================================================================================================================================================================================
+Q5. Explain how to create a Spring Boot application using Maven.
+Well, there are various approaches to create a Spring Boot application using maven, but if I have to name a few, then following are the ways to create a Spring Boot project/ application using maven:
+
+Spring Boot CLI
+Spring Starter Project Wizard
+Spring Initializr
+Spring Maven Project
+===================================================================================================================================================================================
+Q6. Mention the possible sources of external configuration.
+There is no doubt in the fact that Spring Boot allows the developers to run the same application in different environments. 
+Well, this is done with the support it provides for external configuration. It uses environment variables, properties files, command-line arguments, YAML files, and system properties 
+to mention the required configuration properties. Also, the @value annotation is used to gain access to the properties. So, the most possible sources of external configuration are as 
+follows:
+
+Application Properties – By default, Spring Boot searches for the application properties file or its YAML file in the current directory, classpath root or config directory to load the properties.
+Command-line properties – Spring Boot provides command-line arguments and converts these arguments to properties. Then it adds them to the set of environment properties.
+Profile-specific properties –  These properties are loaded from the application-{profile}.properties file or its YAML file. This file resides in the same location as that of the 
+                              non-specific property files and the{profile} placeholder refers to an active profile.
+===================================================================================================================================================================================
+Q7. Can you explain what happens in the background when a Spring Boot Application is “Run as Java Application”?
+When a Spring Boot application is executed as “Run as Java application”, then it automatically launches up the tomcat server as soon as it sees, that you are developing a web application. 
+===================================================================================================================================================================================
