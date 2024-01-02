@@ -4,6 +4,7 @@
 <input type="radio" name="issuereturn"  class="form-check-input" value="return" />Return
 
 <script>
+<!---validate input----------!>
 var issuereturn = document.getElementsByName("issuereturn");
 var radioSelected = false;
 for(var i=0; i<issuereturn.length;i++){
@@ -12,7 +13,7 @@ for(var i=0; i<issuereturn.length;i++){
 if(!radioSelected){
 	alert("Please choose Issue/Return, It should not empty!!!"); return false;
 }
-
+<!------------update true/false inputs--------->
 const radioInputs = document.querySelectorAll('input[name="issuereturn"]');
 			let selectedValue = null;
 			
@@ -22,7 +23,25 @@ const radioInputs = document.querySelectorAll('input[name="issuereturn"]');
 			    }
 			  });
 </script>
+<!----------update more than two values-------->
+<!-- Example radio buttons -->
+<input type="radio" name="ssc_eq" value="Y">Yes
+<input type="radio" name="ssc_eq" value="N">No 
+<input type="radio" name="ssc_eq" value="NA">Not Applicable
 
+<script>
+    // Set the value you want to check, for example, "NA"
+    var valueToCheck = "NA";
+
+    // Get all radio buttons with the name "ssc_eq"
+    var radioButtons = document.querySelectorAll('input[name="ssc_eq"]');
+
+    // Loop through the radio buttons to find the one with the specified value
+    radioButtons.forEach(function(radioButton) {
+        if (radioButton.value === valueToCheck) {
+            radioButton.checked = true; // Set the found radio button as checked
+        }
+    });
 
 #form submit using JS
 ========================
