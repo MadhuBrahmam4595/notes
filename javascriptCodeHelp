@@ -270,9 +270,11 @@ showing Image from base64 values
 <div id="imageContainer" align="center"></div>
 ----------------------------------------------------------------------------------------------------------------
 validate input with require string
-
+===================================
 <input type="text" class="form-control" name="from_date" id="from_date" 
     		oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+
+--------------------------------------------------------------------------------------------------------------------
 
 
 
