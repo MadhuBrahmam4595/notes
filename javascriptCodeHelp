@@ -276,5 +276,32 @@ validate input with require string
 
 --------------------------------------------------------------------------------------------------------------------
 
+how to pass input values to the button onclick function as parameters in javascript
+===================================================================================
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass Input Values to Button Click Function</title>
+    <script>
+        function handleClick(input1, input2) {
+            // Access input values and do something with them
+            var value1 = document.getElementById(input1).value;
+            var value2 = document.getElementById(input2).value;
+            console.log("Input 1:", value1);
+            console.log("Input 2:", value2);
+
+            // You can perform any action with these values here
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="input1" placeholder="Input 1">
+    <input type="text" id="input2" placeholder="Input 2">
+    <button onclick="handleClick('input1', 'input2')">Click Me</button>
+</body>
+</html>
+
+-------------------------------------------------------------------------------------------------------------------------
+
 
 
