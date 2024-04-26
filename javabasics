@@ -11,3 +11,27 @@
         System.out.println("saveapplication_from_date=>"+saveapplication_from_date);
 
 preparedStatement2.setTimestamp(5, saveapplication_from_date);
+=========================================================================
+Export to excel logic :
+function exportToExcel() {
+	    // Get the table element
+	    var table = document.getElementById("tableContent");
+
+	    // Generate an array of arrays representing the table data
+	    var data = [
+	        Array.from(table.querySelectorAll("thead th")).map(th => th.innerText.trim()), // Headers
+	        ...Array.from(table.querySelectorAll("tbody tr")).map(row =>
+	            Array.from(row.querySelectorAll("td")).map(td => td.innerText.trim())
+	        ),
+	    ];
+
+	    // Create a worksheet
+	    var ws = XLSX.utils.aoa_to_sheet(data);
+
+	    // Create a workbook
+	    var wb = XLSX.utils.book_new();
+	    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+	    // Save the workbook to an Excel file
+	    XLSX.writeFile(wb, "table_data.xlsx");
+	}
