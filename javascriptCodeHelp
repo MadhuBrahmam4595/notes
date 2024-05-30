@@ -351,4 +351,52 @@ function downloadCSV(csv, filename) {
 
         </script>
 
+#export html table as excel with contain input type text fields as
+==================================================================
+<table id="vacanciesTable"></table>
+<button onclick="exportTableToExcel()">Export to Excel</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<script>
+function exportTableToExcel() {
+    // Get the table element
+    var table = document.getElementById('vacanciesTable');
+    
+    // Create an array to hold the table data
+    var tableData = [];
+    
+    // Loop through the table rows
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        // Create an array to hold the row data
+        var rowData = [];
+        
+        // Loop through the row cells
+        for (var j = 0, cell; cell = row.cells[j]; j++) {
+            // Check if the cell contains an input element
+            var input = cell.querySelector('input');
+            if (input) {
+                // If there is an input, push its value to the rowData array
+                rowData.push(input.value);
+            } else {
+                // Otherwise, push the cell's text content
+                rowData.push(cell.textContent);
+            }
+        }
+        
+        // Push the rowData array to the tableData array
+        tableData.push(rowData);
+    }
+    
+    // Convert the table data to a worksheet
+    var ws = XLSX.utils.aoa_to_sheet(tableData);
+    
+    // Create a new workbook and append the worksheet
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Vacancies');
+    
+    // Export the workbook to an Excel file
+    XLSX.writeFile(wb, 'Vacancies.xlsx');
+}
+</script>
+
+
 
