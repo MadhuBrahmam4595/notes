@@ -241,7 +241,7 @@ $(document).ready(function(){
 				return false; 
         }
 
-date validation
+#date validation
 ================
 	var dob = $("#dob").val();
         // Parse the original date
@@ -253,7 +253,7 @@ date validation
         // Construct the new date string in the desired format
         var convertedDate = day + '-' + month + '-' + year;
 --------------------------------------------------------------------------
-showing Image from base64 values
+#showing Image from base64 values
 ===================================
 	// Create an img element
 					var imgElement = document.createElement("img");
@@ -269,14 +269,14 @@ showing Image from base64 values
 							imgElement);
 <div id="imageContainer" align="center"></div>
 ----------------------------------------------------------------------------------------------------------------
-validate input with require string
+#validate input with require string
 ===================================
 <input type="text" class="form-control" name="from_date" id="from_date" 
     		oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
 
 --------------------------------------------------------------------------------------------------------------------
 
-how to pass input values to the button onclick function as parameters in javascript
+#how to pass input values to the button onclick function as parameters in javascript
 ===================================================================================
 <!DOCTYPE html>
 <html>
@@ -302,7 +302,7 @@ how to pass input values to the button onclick function as parameters in javascr
 </html>
 
 -------------------------------------------------------------------------------------------------------------------------
-download html table data as excel file 
+#download html table data as excel file 
 =======================================
 <button id="downloadBtn" class="btn btn-primary">Download Excel</button>
 <table class="table table-bordered" id="myTable">
