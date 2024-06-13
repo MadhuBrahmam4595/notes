@@ -1,3 +1,25 @@
+#Populate Year Dropdown
+========================
+ function populateYearDropdown(){
+        var plcmtYear = document.getElementById('plcmtYear');
+        plcmtYear.innerHTML = '';
+        
+        var selectoption = document.createElement('option');
+        selectoption.value = "";
+        selectoption.text = "-ALL-";
+        plcmtYear.appendChild(selectoption);
+        
+        var startYear = 2000;
+        var currentYear = new Date().getFullYear();
+        
+        for (var year = startYear; year <= currentYear; year++) {
+                var option = document.createElement('option');
+                option.value = year;
+                option.text = year;
+                plcmtYear.appendChild(option);
+            }
+    }
+
 #VALIDATE RADIO INPUT AND GET SELECT VALUE
 ==========================================
 <input type="radio" name="issuereturn"  class="form-check-input" value="issue" />Issue
