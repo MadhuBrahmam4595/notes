@@ -1,3 +1,31 @@
+#Delete table row after delete the row in the database
+======================================================
+function deleteEntry(a) {
+                var deleterow = 'trno' + a;
+
+                if (confirm('Are you sure you want to delete Admission Timing for ITI - ' + b + ', Schedule Date - ' + c)) {
+                    // Delete it!
+                    var trno = a;
+                    var table = document.getElementById("tabledata");
+                    var rows = table.getElementsByTagName("tr");
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var row = rows[i];
+                        if (row.id === deleterow) {
+                            row.parentNode.removeChild(row);
+                            break;
+                        }
+                    } 
+                } else {
+                    // Do nothing!
+                }
+            }
+<table>
+<tbody>
+ <tr id='trno<%=deleteAdmTimesRs.getString("trno")%>'><td>asdfasdfasdf</td></tr>
+</tbody>
+</table>
+
 #Populate Year Dropdown
 ========================
  function populateYearDropdown(){
