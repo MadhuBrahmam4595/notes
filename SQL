@@ -98,4 +98,23 @@ CREATE TRIGGER archive_student_application_trigger
     FOR EACH ROW 
     EXECUTE FUNCTION public.student_application_archive_process();
 
+#VERTICAL AND HORIZONTAL TOTAL BY QUERY
+======================================
+SELECT 
+    COALESCE(passyear, 'Total') AS passyear,
+    SUM(CASE WHEN ptype='Job' THEN 1 ELSE 0 END) AS job,
+    SUM(CASE WHEN ptype='OJ' THEN 1 ELSE 0 END) AS oj,
+    SUM(CASE WHEN ptype='Apprenticeship' THEN 1 ELSE 0 END) AS apprenticeship,
+    SUM(CASE WHEN ptype='OA' THEN 1 ELSE 0 END) AS oa,
+    SUM(CASE WHEN ptype='HigherEducation' THEN 1 ELSE 0 END) AS higherEducation,
+    SUM(CASE WHEN ptype='SelfEmployment' THEN 1 ELSE 0 END) AS selfEmployment,
+    COUNT(*) AS total_count
+FROM 
+    placements.placements
+WHERE 
+    passyear != ''
+GROUP BY 
+    ROLLUP(passyear)
+ORDER BY 
+    passyear;
 
