@@ -1,3 +1,18 @@
+#Download data with unlimited html table rows
+=============================================
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+<script>
+function fnExcelReport(a) {
+    var table = document.getElementById(a);
+    var wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+
+    // Generate Excel file
+    XLSX.writeFile(wb, 'Report.xlsx');
+}
+</script>
+
+
 #Delete table row after delete the row in the database
 ======================================================
 function deleteEntry(a) {
