@@ -1,0 +1,36 @@
+# GET MASTER TABLE INFORMATION IN TRANSACTION TABLE WHEN WE CODES OF THE ROWS INSTEAD STRING VALUES WITHOUT CREATING JOIN TABLE
+===============================================================================================================================
+Distmast.java
+-------------
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name = "distmast")
+public class Distmast {
+    @Id
+    private Long distcode;
+    private String name;
+    // other fields
+    // getters and setters
+}
+Placement.java
+--------------
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "placements")
+public class Placement {
+    @Id
+    private Long id;
+    private Long distcode; // The foreign key column
+    @ManyToOne
+    @JoinColumn(name = "distcode", insertable = false, updatable = false)
+    private Distmast distmast;
+    // other fields
+    // getters and setters
+}
+
