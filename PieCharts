@@ -1,0 +1,73 @@
+#USING AJAX RESPONSE SINGLE MAP OBJECT - JAVASCRIPT
+===================================================
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Pie Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Chart Container -->
+    <div style="width: 50%; margin: auto;">
+        <canvas id="pvtSeatsPieChart"></canvas>
+    </div>
+
+    <script>
+        // AJAX call to get data
+        function fetchDataAndRenderChart() {
+            $.ajax({
+                type: 'GET',
+                url: 'your-api-endpoint', // replace with your endpoint
+                success: function(response) {
+                    // Extract data for the pie chart from dashBoardPvtSeats
+                    const data = response.dashBoardPvtSeats;
+                    renderPieChart(data);
+                },
+                error: function(error) {
+                    console.log("Error fetching data: ", error);
+                }
+            });
+        }
+
+        // Function to render the pie chart
+        function renderPieChart(data) {
+            const ctx = document.getElementById('pvtSeatsPieChart').getContext('2d');
+            const chartData = {
+                labels: ['Filled Seats', 'Vacant Seats'],
+                datasets: [{
+                    data: [data.strength_fill, data.strength_vacant],
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    hoverOffset: 4
+                }]
+            };
+
+            new Chart(ctx, {
+                type: 'pie',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    let label = chartData.labels[tooltipItem.dataIndex] || '';
+                                    const value = chartData.datasets[0].data[tooltipItem.dataIndex];
+                                    return label + ': ' + value;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Fetch data and render the chart when the page loads
+        $(document).ready(function() {
+            fetchDataAndRenderChart();
+        });
+    </script>
+</body>
+</html>
