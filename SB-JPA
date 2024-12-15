@@ -1,0 +1,15 @@
+###### Decrease Native Queries execution time ##############
+application.properties
+spring.jpa.properties.hibernate.generate_statistics=true
+Employee.java
+
+    @Query(value = "select e from Employee e where e.jobTitle=:job")
+    @QueryHints({
+        @QueryHint(name="org.hibernate.readOnly", value="true"),
+        @QueryHint(name="org.hibernate.cacheable", value = "true"),
+        @QueryHint(name="jakarta.persistence.cache.retrieveMode", value = "USE"),
+        @QueryHint(name="jakarta.persistence.cache.storeMode", value = "USE")
+    })
+    List<Employee> getAllEmps(String job);
+
+################# Association Mapprings ####################
