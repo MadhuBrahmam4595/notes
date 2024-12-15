@@ -13,3 +13,73 @@ Employee.java
     List<Employee> getAllEmps(String job);
 
 ################# Association Mapprings ####################
+1-------->*
+===========
+public class ApprovedCaseEntity(1) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "approvedCaseEntity",cascade = CascadeType.ALL)
+    private List<HearingEntity> hearings;
+}
+SELECT id, approved_date, case_number, approve_case_id FROM public.approved_case_entity;
+
+public class HearingEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "caseId", referencedColumnName = "id", nullable = false)
+    private ApprovedCaseEntity approvedCaseEntity;
+}
+SELECT id, date, hearing_remarks, status, case_id FROM public.hearings;
+
+*----------->1
+==============
+public class CaseHistory {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "case_entity_id", nullable = false)
+    @JsonBackReference
+    private CaseEntity caseEntity;
+}
+SELECT id, action, action_time, remarks, case_id, officer_id, date, remark, case_entity_id FROM public.case_history;
+
+public class CaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
+
+    @OneToMany(mappedBy = "caseEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<CaseHistory> caseHistory;
+}
+SELECT id, application_entry_date, application_id, case_description, case_entry_date, case_no, case_status, under_act_id, case_nature_id, case_type_id, judge_id, section_rule_id, user_id, court_level_court_id, under_act_under_act_id FROM public.case_details_table;
+
+1--------------->1
+====================
+public class AdvocateEntity {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long advocateId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "applicationId", nullable = false)
+    @JsonBackReference
+    private CaseEntity caseEntity;
+}
+public class CaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
+
+    @OneToOne(mappedBy = "caseEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private AdvocateEntity advocates;
+}
+
