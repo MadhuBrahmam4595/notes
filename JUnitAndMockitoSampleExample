@@ -1,0 +1,186 @@
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders;
+
+    // Getters and setters
+}
+
+@Entity
+public class Profile {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String email;
+
+    private String phone;
+
+    // Getters and setters
+}
+
+@Entity
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String orderNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    // Getters and setters
+}
+
+@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    private Double price;
+
+    // Getters and setters
+}
+
+==============================================================================
+
+public interface UserRepository extends JpaRepository<User, Long> {}
+
+public interface OrderRepository extends JpaRepository<Order, Long> {}
+
+public interface ProductRepository extends JpaRepository<Product, Long> {}
+=============================================================================
+import org.springframework.stereotype.Service;
+import java.util.Optional;
+
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+}
+===================================================================================
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+public class UserServiceTest {
+
+    @Mock
+    private UserRepository userRepository;
+
+    @InjectMocks
+    private UserService userService;
+
+    @Test
+    void testGetUserById() {
+        // Arrange
+        Profile profile = new Profile();
+        profile.setId(1L);
+        profile.setEmail("test@example.com");
+        profile.setPhone("1234567890");
+
+        Product product = new Product();
+        product.setId(1L);
+        product.setName("Laptop");
+        product.setPrice(1000.0);
+
+        Order order1 = new Order();
+        order1.setId(1L);
+        order1.setOrderNumber("ORD123");
+        order1.setProduct(product);
+
+        Order order2 = new Order();
+        order2.setId(2L);
+        order2.setOrderNumber("ORD124");
+        order2.setProduct(product);
+
+        User user = new User();
+        user.setId(1L);
+        user.setName("John Doe");
+        user.setProfile(profile);
+        user.setOrders(Arrays.asList(order1, order2));
+
+        order1.setUser(user);
+        order2.setUser(user);
+
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        // Act
+        User result = userService.getUserById(1L);
+
+        // Assert
+        assertEquals("John Doe", result.getName());
+        assertEquals("test@example.com", result.getProfile().getEmail());
+        assertEquals(2, result.getOrders().size());
+        assertEquals("Laptop", result.getOrders().get(0).getProduct().getName());
+
+        verify(userRepository, times(1)).findById(1L);
+    }
+
+    @Test
+    void testCreateUser() {
+        // Arrange
+        User user = new User();
+        user.setId(1L);
+        user.setName("Jane Doe");
+
+        when(userRepository.save(user)).thenReturn(user);
+
+        // Act
+        User result = userService.createUser(user);
+
+        // Assert
+        assertEquals("Jane Doe", result.getName());
+        verify(userRepository, times(1)).save(user);
+    }
+}
+===========================================================================================
+Key Points:
+Mocking Repositories: Use @Mock to mock dependencies such as repositories.
+InjectMocks: Use @InjectMocks to inject mocked dependencies into the service being tested.
+Entity Relationships: The test data sets up entities with relationships (e.g., User with Profile and Orders).
+Assertions: Validate the structure and values of related entities in the test results.
+Mockito Stubbing: Use when(...).thenReturn(...) to define mock behavior
+
